@@ -1,96 +1,7 @@
-//importar modulos
-/*const express = require('express');
-const path = require('path');
-
-//crear objetos de ruta
-const router = express.Router();
-
-//exportar a router
-module.exports=router;
-
-router.get('/', function(req, res){
-    res.render('pages/home',{extra: "Yim"});
-});
-
-router.get('/about',(req,res)=>{
-    var users = [
-        { name: 'Holly', email: 'holly@scotch.io', avatar: 'http://placekitten.com/300/300'},
-        { name: 'Chris', email: 'chris@scotch.io', avatar: 'http://placekitten.com/400/400'},
-        { name: 'Ado', email: 'Ado@scotch.io', avatar: 'http://placekitten.com/500/500'},
-        { name: 'Samantha', email: 'Samantha@scotch.io', avatar: 'http://placekitten.com/700/700'}
-      ];
-
-    res.render('pages/about',{usr:users});
-});
-
-router.get('/contact',(req,res)=>{
-    res.render('pages/contact')
-    });
-
-/*router.post('/contact',(req,res)=>{
-    personal = {message: 'Gracias por contactarnos, ' + req.body.name + '! responderemos lo mas pronto posible!'};
-    console.log("Nombre:" + req.body.name);
-    console.log("Email:" + req.body.email);
-    console.log("Mensaje:" + req.body.message);
-    
-    res.render('pages/thank-you', {personal: personal});
-});*/
-
-/*router.get('/contacto', (req,res)=>{
-    
-    nom = req.query.name;
-    console.log( ` ${req.query} :  ${nom}`);
-    console.log("Email:" + req.query.email);
-    console.log("Mensaje:" + req.query.message);
-    personal = {message: 'Gracias por contactarnos, ' + req.query.name + '! responderemos lo mas pronto posible!'};
-    res.render('pages/thank-you', {personal: personal});
-    
-  });*/
-/*
-  router.post('/contact',(req,res)=>{
-    
-        const nom = req.query.name;
-       console.log(`${req.query} : ${nom}`);
-       
-        var nombre = req.body.name;
-        var apellidoP = req.body.apellidoP;
-        var apellidoM = req.body.apellidoM;
-        var dia=req.body.dia;
-        var mes = req.body.mes;
-        var anio = req.body.anio;
-    
-        var ap1= apellidoP[2];
-        //var ap2= apellidoP[2];
-        var ap3= apellidoM[3];
-        var n= nombre[0];
-        var a1=anio[4];
-        var a1=anio[5];
-    
-      
-       var rfc = ""; 
-       rfc= rfc + apellidoM.charAt(0).toUpperCase();
-       rfc= rfc + nombre.charAt(0).toUpperCase();
-    
-       rfc= rfc + anio;
-       rfc = rfc + mes;
-       rfc = rfc + dia;
-    
-       rfc = rfc + Math.round(Math.random()*9);
-       rfc = rfc + Math.round(Math.random()*9);
-    
-        var alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    
-        rfc = rfc + alfabeto[Math.round(Math.random()*10)].toUpperCase(); 
-       
-     
-       const personal={message:'Estimado(a) ' + nombre + ' su RFC a sido generado'+ rfc};
-       res.render('pages/thank-you',{per: personal});
-    });
-    */
    var express=require('express');
    var router=express.Router();
 
-   module.export=router;//Exportamos todo el archivo routes
+   module.exports=router;//Exportamos todo el archivo routes
 
    /*router.get('/',(req,res)=>{});
 
@@ -111,7 +22,7 @@ router.get('/contact',(req,res)=>{
      }
      var AMaterno=req.body.Materno.substr(0,1);
 
-     if(AMaterno.toUpperCase()--"Ñ")
+     if(AMaterno.toUpperCase()=="Ñ")
      {
        AMaterno="X";
      }
