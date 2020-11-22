@@ -1,0 +1,25 @@
+<%- contentFor('heros') %>
+<section class="hero">
+  <div class="hero-content">
+    <h2>Sobre nosotros!</h2>
+    <p>Aue hacemos??</p>
+
+    <a href="/contact" class="btn btn-lg btn-primary">Contactanos</a>
+  </div>
+</section>
+
+<%- contentFor('body') %>
+<div class="jumbotron text-center">
+  <h1>The Team</h1>
+  
+  <div class="row">     
+    <% for (user of usr) { %>
+      <div class="col-sm-3">
+        <h2><%= user.name %></h2>
+        <img src="<%= user.avatar %>" alt="" class="img-responsive">
+    <h3><%= user.email %></h3>    
+    </div>
+    <% } %>
+    <h1>Yim</h1>
+  </div>
+</div>

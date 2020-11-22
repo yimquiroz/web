@@ -1,0 +1,133 @@
+<html>
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script>
+        function calculaRFC() {
+            function quitaArticulos(palabra) {
+                return palabra.replace("DEL ", "").replace("LAS ", "").replace("DE ",
+                        "").replace("LA ", "").replace("Y ", "").replace("A ", "");
+            }
+            function esVocal(letra) {
+                if (letra == 'A' || letra == 'E' || letra == 'I' || letra == 'O'
+                        || letra == 'U' || letra == 'a' || letra == 'e' || letra == 'i'
+                        || letra == 'o' || letra == 'u')
+                    return true;
+                else
+                    return false;
+            }
+        
+            nombre = $("#NOMBRE_PERSONA").val().toUpperCase();
+        
+            apellidoPaterno = $("#APELLIDO_PATERNO").val().toUpperCase();
+        
+            apellidoMaterno = $("#APELLIDO_MATERNO").val().toUpperCase();
+        
+            fecha = $("#F_NACIMIENTO").val();
+        
+            var rfc = "";
+        
+            apellidoPaterno = quitaArticulos(apellidoPaterno);
+            apellidoMaterno = quitaArticulos(apellidoMaterno);
+        
+            rfc += apellidoPaterno.substr(0, 1);
+        
+            var l = apellidoPaterno.length;
+            var c;
+            for (i = 0; i < l; i++) {
+                c = apellidoPaterno.charAt(i);
+                if (esVocal(c)) {
+                    rfc += c;
+                    break;
+                }
+            }
+        
+            rfc += apellidoMaterno.substr(0, 1);
+        
+            rfc += nombre.substr(0, 1);
+        
+            rfc += fecha.substr(8, 10);
+        
+            rfc += fecha.substr(3, 5).substr(0, 2);
+        
+            rfc += fecha.substr(0, 2);
+        
+            // rfc += "-" + homclave;
+        
+            $("#RFC").val(rfc);
+        
+        }
+        </script>
+        </head>
+        <body>
+        <fieldset>
+            <legend>Informaci&oacute;n General</legend>
+            <div>
+            <table>
+            <tr>
+                <td >
+                    Nombre(s):
+                </td>
+                <td>
+                    <input id ="NOMBRE_PERSONA" type="text" size = "20" maxlength="30" 
+                    class="uppercase" onchange="calculaRFC();"/>
+                </td>	
+            </tr>
+            <tr>
+                <td>	
+                Apellido Paterno:
+                </td>
+                <td>
+                <input  id ="APELLIDO_PATERNO" type="text"  size="20" maxlength="30" 
+                class="uppercase" onchange="calculaRFC();"/>
+                </td>	
+            </tr>
+            <tr>
+                <td >
+                    Apellido Materno:
+                </td>
+                <td>
+                    <input class="uppercase" id ="APELLIDO_MATERNO" name="APELLIDO_MATERNO" type="text"  
+                    size="20" maxlength="30" onchange="calculaRFC();"/>
+                </td>	
+            </tr>
+            <tr>
+                <td >		
+                Fecha Nacimiento:
+                </td>
+                <td>
+                <input  id ="F_NACIMIENTO" name="F_NACIMIENTO" class="campofechaNac" type="text"  
+                onchange="calculaRFC();"/>
+                </td>
+                <td>
+        
+            </tr>
+            <tr>
+                    <td>	
+                        Sexo:
+                    </td>
+                    <td>
+                        <div>
+                        <input id="sexoFemenino" type="radio" name="SEXO" value="F" class="simple_radio">
+                            <span>Femenino</span>
+                        </div> 
+                        
+                        <div>
+                        <input id="sexoMasculino" type="radio" name="SEXO" value="M" class="simple_radio" > 
+                            <span>Masculino</span>
+                        </div>
+                        <label for="SEXO" class="error">Selecci&oacute;n es requerida</label>
+                    </td>
+            </tr> 		
+            <tr>
+                <td>
+                RFC:
+                </td>
+                <td>
+                    <input class="uppercase" id="RFC"  name="RFC" type="text" />
+                </td>	
+            </tr>
+          </table>
+          </div>
+        </fieldset>
+        </body>
+        </html>

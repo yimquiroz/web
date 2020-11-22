@@ -1,0 +1,44 @@
+<div id= contactimg class="jumbotron text-center">
+  <h1 style="color: rgb(16, 16, 88) ; ">Generador de  RFC</h1>
+
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h2>Llenar el siguiente formulario</h2>
+      
+     
+      <form action="/contact" method="POST">
+      <!--<form action="/contacto" method="GET"> -->
+    
+
+        <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" name="name" class="form-control" value="" required placeholder="Nombre completo">
+        </div>
+        <div class="form-group">
+          <label>Apellido Paterno</label>
+          <input type="text" name="apellidoP" class="form-control" placeholder="Apellido Paterno">
+        </div>
+        <div class="form-group">
+          <label>Apellido Materno</label>
+          <input type="text" name="apellidoM" class="form-control" placeholder="Apellido Materno">
+        </div>
+        <div class="form-group">
+          <label>Dia</label>
+          <input type="text" name="dia" class="form-control"required placeholder="dia">
+        </div>
+        <div class="form-group">
+          <label>Mes</label>
+          <input type="text" name=">mes" class="form-control"required placeholder="mes">
+        </div>
+        <div class="form-group">
+          <label>Año</label>
+          <input type="text" name="anio" class="form-control"required placeholder="Año">
+        </div>
+        <div class="form-group text-right">
+          <button type="submit" class="btn btn-primary btn-lg">Send</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
