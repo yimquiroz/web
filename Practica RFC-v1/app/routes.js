@@ -60,7 +60,7 @@ router.post('/contact',(req,res)=>{
 
      var sex=req.body.sexo;
      var edo=req.body.estado;
-     var primconstintp=req.body.Paterno.substr(1,req.body.paterno.length)
+     var primconstintp=req.body.Paterno.substr(1,req.body.Paterno.length)
      separador="",
      arreglopat=primconstintp.split(separador);
      arreglopat.forEach(element => {
@@ -99,7 +99,7 @@ router.post('/contact',(req,res)=>{
 
      var CURP=primeras4+Año+Mes+Dia+sex+edo+primconstintp+primconstintM+primconstintN+extra+aleto2;
 
-   const personal={message:'Sr(a) ' + nombre + ' su RFC a sido generado'+ CURP};
+   const personal={message:'su Curp a sido generado'+ CURP};
    res.render('pages/thank-you',{per: personal});
 });
 
