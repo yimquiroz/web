@@ -38,7 +38,16 @@ router.post('/contact',(req,res)=>{
      {
        AMaterno="x"
      }
-     var primeras4=APaterno+AMaterno+Nombre;
+
+     
+     var primeras4 = APaterno + AMaterno + Nombre;
+     var Groserias = ["BACA", "VACA", "CAKA", "CACA", "PENE", "PITO", "PUTO", "PUTA", "COLA",
+     "FETO", "GETA", "LILO", "LOCO", "MANO", "MIAR", "MOCO", "MOCO", "NACA", "NACO", "PEDA", "PEDO", "RUIN", "GUEY", "MUEY"]
+     if(Groserias.includes(primeras4.toUpperCase())==true)
+     {
+      primeras4= APaterno + AMaterno + "X";
+     }
+     
      var Año=req.body.fenac.substr(2,2);
      var Mes=req.body.fenac.substr(5,2);
      var Dia=req.body.fenac.substr(8,2);
@@ -78,7 +87,7 @@ router.post('/contact',(req,res)=>{
      arregloMat.forEach(element => {
        if(primconstintM.length!=1)
        {
-         if(element=='a'|| element=='e'||element=='i'||element=='o'||element=='u')
+         if(element=='a'|| element=='e'||element=='i'||element=='o'||element=='u'||element==' ')
          {}
          else{primconstintM=element;}
        }
