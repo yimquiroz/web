@@ -22,6 +22,7 @@ router.post('/contact',(req,res)=>{
      {
        APaterno="A"+APaterno.substr(1,1);
      }
+     
      var AMaterno=req.body.Materno.substr(0,1);
 
      if(AMaterno.toUpperCase()=="Ñ")
@@ -30,6 +31,7 @@ router.post('/contact',(req,res)=>{
      }
 
      var Caracter=["/","-","."];
+
      if(Caracter.includes(APaterno.substr(0,1))==true)
      {
        APaterno=APaterno.substr(0,1)+"x"
@@ -39,7 +41,7 @@ router.post('/contact',(req,res)=>{
        AMaterno="x"
      }
 
-     
+
      var primeras4 = APaterno + AMaterno + Nombre;
      var Groserias = ["BACA", "VACA", "CAKA", "CACA", "PENE", "PITO", "PUTO", "PUTA", "COLA",
      "FETO", "GETA", "LILO", "LOCO", "MANO", "MIAR", "MOCO", "MOCO", "NACA", "NACO", "PEDA", "PEDO", "RUIN", "GUEY", "MUEY"]
@@ -72,6 +74,7 @@ router.post('/contact',(req,res)=>{
      var primconstintp=req.body.Paterno.substr(1,req.body.Paterno.length)
      separador="",
      arreglopat=primconstintp.split(separador);
+   
      arreglopat.forEach(element => {
        if(primconstintp.length!=1)
        {
@@ -105,10 +108,10 @@ router.post('/contact',(req,res)=>{
        }
        
      });
-
+   
      var CURP=primeras4+Año+Mes+Dia+sex+edo+primconstintp+primconstintM+primconstintN+extra+aleto2;
 
-   const personal={message:'su Curp a sido generado'+ CURP};
+   const personal={message:' Su CURP a sido generado '+ CURP};
    res.render('pages/thank-you',{per: personal});
 });
 
