@@ -16,94 +16,90 @@ router.get('/', (req, res)=>{
 //route about
 router.get('/about',(req,res)=>{
 
-    
+  var Nombre=req.body.Name.substr(0,1);
+     var APaterno=req.body.Paterno.substr(0,2);
+     if(APaterno.substr(0,1).toUpperCase=="Ñ")
+     {
+       APaterno="A"+APaterno.substr(1,1);
+     }
+     var AMaterno=req.body.Materno.substr(0,1);
 
-    var users = [
-        { name: 'Holly', email: 'holly@scotch.io', avatar: 'http://placekitten.com/300/300'},
-        { name: 'Chris', email: 'chris@scotch.io', avatar: 'http://placekitten.com/400/400'},
-        { name: 'Ado', email: 'Ado@scotch.io', avatar: 'http://placekitten.com/500/500'},
-        { name: 'Samantha', email: 'Samantha@scotch.io', avatar: 'http://placekitten.com/700/700'}
-      ];
+     if(AMaterno.toUpperCase()=="Ñ")
+     {
+       AMaterno="X";
+     }
 
-    //  res.render('pages/about',{usr:users});
+     var Caracter=["/","-","."];
+     if(Caracter.includes(APaterno.substr(0,1))==true)
+     {
+       APaterno=APaterno.substr(0,1)+"x"
+     }
+     else if(Caracter.includes(AMaterno.substr(0,1))==true)
+     {
+       AMaterno="x"
+     }
+     var primeras4=APaterno+AMaterno+Nombre;
+     var Año=req.body.fenac.substr(2,2);
+     var Mes=req.body.fenac.substr(5,2);
+     var Dia=req.body.fenac.substr(8,2);
+     var aleto1=Math.round(Math.random()*(0-9)+parseInt(9));
+     var aleto2=Math.round(Math.random()*(0-9)+parseInt(9));
+     var aleABC=Math.round(Math.random()*(0-25)+parseInt(25));
+     var ABC='ABCDEFGHIJKLMNOPQRSTUVWXYZ'//Abecedario
+     var letra=ABC.substr(aleABC,1);
+     var AñoCompleto=req.body.fenac.substr(0,4);
+     var extra="";
+     if(AñoCompleto.substr(0,1)=="1")
+     {
+       extra=aleto1;
+     }
+     else
+     {
+       extra=letra;
+     }
 
-    res.render('pages/about',{usr:users, xy : "Mas valores"});
-});
+     var sex=req.body.sexo;
+     var edo=req.body.estado;
+     var primconstintp=req.body.Paterno.substr(1,req.body.paterno.length)
+     separador="",
+     arreglopat=primconstintp.split(separador);
+     arreglopat.forEach(element => {
+       if(primconstintp.length!=1)
+       {
+         if(element=='a'|| element=='e'||element=='i'||element=='o'||element=='u')
+         {}
+         else{primconstintp=element;}
+       }
+       
+     });
+     var primconstintM=req.body.Materno.substr(1,req.body.Materno.length)
+     separador="",
+     arregloMat=primconstintM.split(separador);
+     arregloMat.forEach(element => {
+       if(primconstintM.length!=1)
+       {
+         if(element=='a'|| element=='e'||element=='i'||element=='o'||element=='u')
+         {}
+         else{primconstintM=element;}
+       }
+       
+     });
+     var primconstintN=req.body.Name.substr(1,req.body.Name.length)
+     separador="",
+     arregloNommbre=primconstintN.split(separador);
+     arregloNommbre.forEach(element => {
+       if(primconstintN.length!=1)
+       {
+         if(element=='a'|| element=='e'||element=='i'||element=='o'||element=='u')
+         {}
+         else{primconstintN=element;}
+       }
+       
+     });
 
+     var CURP=primeras4+Año+Mes+Dia+sex+edo+primconstintp+primconstintM+primconstintN+extra+aleto2;
 
-
-//route Contact
-router.get('/contact',(req,res)=>{
-    res.render('pages/contact');
-});
-
-/*
-router.post('/contact',(req,res)=>{
-
-    const personal={message:'thanks for contacting us,' +req.body.name + '! We will shortly!'};
-    res.render('pages/thank-you',{per: personal});
-
-});
-*/
-
-//Tomar dato del campo Nombre y ponerlo  en una variable
-
-router.post('/contact',(req,res)=>{
-/*
-    const nom = req.query.name;
-   console.log(`${req.query} : ${nom}`);
-*/
-    var nombre = req.body.name;
-    var apellidoP = req.body.apellidoP;
-    var apellidoM = req.body.apellidoM;
-    var dia = req.body.dia;
-    var mes = req.body.mes;
-    var anio = req.body.anio;
-
-  
-   var rfc = " "; 
-/*
-var arregloAp = Array.from(apellidoP[0]);
-let primeravocalap =arregloAp.find(elemento=> elemento == "A"||"E"||"I"||"O"||"U" );
-*/
-
-saludo = Array.from(apellidoP);
-otraVariableX = "hola";
-
-for (var i = 0; i < saludo.length[1]; i++) {
-
- if (saludo == "A"||"E"||"I"||"O"||"U") {
-   console.log(saludo)
- }
-}
-
-   rfc = rfc + arregloAp[0].charAt(0).toUpperCase();
-   rfc = rfc + primeravocalap.charAt(0).toUpperCase();
-   rfc = rfc + apellidoM.charAt(0).toUpperCase();
-   rfc = rfc + nombre.charAt(0).toUpperCase();
-
-   rfc = rfc + anio;
-   rfc = rfc + mes;
-   rfc = rfc + dia;
-
-   rfc = rfc + Math.round(Math.random()*9);
-   rfc = rfc + Math.round(Math.random()*9);
-
-
- //   var rdm = Math.floor((9-4)*Math.random()) +1 ;
-
-    var alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-    rfc = rfc + alfabeto[Math.round(Math.random()*10)].toUpperCase(); 
-   
-  /* var randiT = "";
-    for (i=0;i<2;i++) randiT += caracteres.charAt(Math.floor(Math.random()*caracteres.length));
-
-    rfc=[ap1,ap2,ap3,n,dia,mes,a1,a2,nom,rdm,randiT]; 
-    */
-    
-
-   const personal={message:'Sr(a) ' + nombre + ' su RFC a sido generado'+ rfc};
+   const personal={message:'Sr(a) ' + nombre + ' su RFC a sido generado'+ CURP};
    res.render('pages/thank-you',{per: personal});
 });
 
