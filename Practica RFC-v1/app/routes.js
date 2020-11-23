@@ -66,7 +66,7 @@ router.post('/contact',(req,res)=>{
      arreglopat.forEach(element => {
        if(primconstintp.length!=1)
        {
-         if(element=='a'|| element=='e'||element=='i'||element=='o'||element=='u')
+         if(element=='a'|| element=='e'||element=='i'||element=='o'||element=='u'||element==' ')
          {}
          else{primconstintp=element;}
        }

@@ -34,10 +34,6 @@ router.get('/about',(req,res)=>{
      res.render('pages/Listo',{CURP});
 
 
-
-
-
-
    
     })
 
