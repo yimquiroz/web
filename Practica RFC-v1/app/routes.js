@@ -14,7 +14,7 @@ router.get('/', (req, res)=>{
 });
 
 //route about
-router.get('/about',(req,res)=>{
+router.post('/contact',(req,res)=>{
 
   var Nombre=req.body.Name.substr(0,1);
      var APaterno=req.body.Paterno.substr(0,2);
