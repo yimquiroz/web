@@ -3,16 +3,31 @@
 
    module.exports=router;//Exportamos todo el archivo routes
 
-   /*router.get('/',(req,res)=>{});
+//RUTA PARA HOME
+router.get('/', (req, res)=>{
+  res.render('pages/home',{extra:"Yanez's"});
+});
+//RUTA PARA ABOUT
 
-   router.post('/contact',(req,res)=>{
-     var Nombre=req.body.Name;
-     var Email=req.body.Correo;
-     var Sujeto=req.body.Mensaje;
+router.get('/about',(req,res)=>{
 
-     console.log('Nombre'${Nombre} Correo: ${Email} Mensaje:${Sujeto})
-   })*/
+    
 
+  var users = [
+      { name: 'Holly', email: 'holly@scotch.io', avatar: 'http://placekitten.com/300/300'},
+      { name: 'Chris', email: 'chris@scotch.io', avatar: 'http://placekitten.com/400/400'},
+      { name: 'Ado', email: 'Ado@scotch.io', avatar: 'http://placekitten.com/500/500'},
+      { name: 'Samantha', email: 'Samantha@scotch.io', avatar: 'http://placekitten.com/700/700'}
+    ];
+
+  //  res.render('pages/about',{usr:users});
+
+  res.render('pages/about',{usr:users, xy : "Mas valores"});
+});
+
+
+
+//RUTA PARA CONTACT
    router.post('/contact',(req,res)=>{
      var Nombre=req.body.Name.substr(0,1);
      var APaterno=req.body.Paterno.substr(0,2);
@@ -44,12 +59,12 @@
      var aleto2=Math.round(Math.random()*(0-9)+parseInt(9));
      var aleABC=Math.round(Math.random()*(0-25)+parseInt(25));
      var ABC='ABCDEFGHIJKLMNOPQRSTUVWXYZ'//Abecedario
-     var Letra=ABC.substr(aleABC,1);
+     var letra=ABC.substr(aleABC,1);
      var AñoCompleto=req.body.fenac.substr(0,4);
      var extra="";
      if(AñoCompleto.substr(0,1)=="1")
      {
-       extra=alea1;
+       extra=aleto1;
      }
      else
      {
@@ -97,7 +112,7 @@
 
      var CURP=primeras4+Año+Mes+Dia+sex+edo+primconstintp+primconstintM+primconstintN+extra+aleto2;
      console.log('CURP: ${CURP}');
-     res.render('pages/Listo,{CURP}');
+     res.render('pages/Listo',{CURP});
 
 
 
