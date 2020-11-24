@@ -18,6 +18,7 @@ header .navbar {
   position: relative;
 }
 
+
 .hero-content {
   position: absolute;
   top: 50%;
@@ -57,3 +58,6 @@ footer {
 #contactimg{
   background-image: url(../img/x2.jpg);
 }
+#reloj { width: 150px; height: 30px; padding: 5px 10px; border: 1px solid black; 
+  font: bold 1.5em dotum, "lucida sans", arial; text-align: center;
+  float: right; margin: 1em 3em 1em 1em; }

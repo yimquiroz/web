@@ -9,7 +9,7 @@
     />
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
-  <body>
+  <body onload="startTime()"></body>>
     <header>
       <nav class="navbar navbar-inverse">
         <a href="/" class="navbar-brand">My Site</a>
@@ -29,5 +29,13 @@
        </div>
     </main>
     <footer>Awesome Site. Copyright &copy; 2020</footer>
+
+    <div id="clockdate">
+      <div class="clockdate-wrapper">
+        <div id="clock"></div>
+        <div id="date"></div>
+        <li><a href="/">Home</a></li>
+      </div>
+    </div>
   </body>
 </html>
