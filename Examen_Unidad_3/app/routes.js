@@ -14,7 +14,8 @@ router.get('/', (req, res)=>{
 });
 
 //route Ventas
-router.post('/compra',(req,res)=>{
+
+router.post('/venta',(req,res)=>{
 
   var Nombre=req.body.Name.substr(0,1);
   Nombre;
@@ -24,10 +25,25 @@ router.post('/compra',(req,res)=>{
 
 //route Compras
 router.post('/compra',(req,res)=>{
+    
+   var dlls=1000;
+   var pesos=20000;
+   var compra=19.20;
 
- // var Nombre=req.body.Name.substr(0,1);
+   var cambio = req.body.cantidad; 
+
+   
+      if(cambio >= dlls){
+        console.log("No hay dinero suficiente");
+      }
+      else{
+        result = cambio * compra;
+        //console.log("Su cambio es: " + result);
+      }
+    
+    
   
-   const personal={message:' Su CURP a sido generado '+ CURP};
+   const personal={message:' Su total es '+ result};
    res.render('pages/thank-you',{per: personal});
 });
 
@@ -35,6 +51,7 @@ router.post('/compra',(req,res)=>{
 
  //route thank you
 
-router.get('/compra',(req,res)=>{
+
+router.get('/thank-you',(req,res)=>{
    res.render('pages/compra');
 });
