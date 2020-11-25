@@ -1,14 +1,15 @@
 
 <div id= contactimg class="jumbotron text-center">
-  <h1 style="color: white ; ">Compra</h1>
+  <h1 style="color: black ; ">Compra</h1>
 
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
       <h2>¡Facil, rápido y seguro!</h2>
-      <p style="color:white;">¡Solo ingresa los datos!</p>
+      
+      <h2 style="color:black;">¡Solo ingresa los datos!</h2>
 
       <h2>Tipo de cambio</h2>
-      <h2>COMPRA 19.20</h2>
+      
      
       <form action="/compra" method="POST">
       <!--<form action="/contacto" method="GET"> -->
@@ -17,17 +18,18 @@
         <div class="form-group">
 
           <div class="form-group">
-
+            <label>COMPRA</label>
+            <input type="number" name="comp" class="form-control" value="" required placeholder="COMPRA">
           <label>Cuanto desea vender?</label>
           <input type="number" name="cantidad" class="form-control" value="" required placeholder="Cuanto desea vender?">
         </div>    
 
         
         
-          <div class="help-block with-errors"></div>
+        <div class="help-block with-errors"></div>
           </div>
         </div> 
-        <button type = "submit" id ="form-submit" class="btn btn-success btn-lg pull-center">Generar</button>
+        <button  type = "submit" id ="form-submit" class="btn btn-success btn-lg pull-center" >Generar</button>
         <div id="msgSubmit" class="h2 text-center hidden"></div>
         <div class=clearfix></div>
 
