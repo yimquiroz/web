@@ -14,7 +14,7 @@ router.get('/', (req, res)=>{
 });
 
 //route Ventas
-router.post('/contact',(req,res)=>{
+router.post('/compra',(req,res)=>{
 
   var Nombre=req.body.Name.substr(0,1);
   Nombre;
@@ -23,7 +23,7 @@ router.post('/contact',(req,res)=>{
 });
 
 //route Compras
-router.post('/contact',(req,res)=>{
+router.post('/compra',(req,res)=>{
 
  // var Nombre=req.body.Name.substr(0,1);
   
@@ -35,6 +35,6 @@ router.post('/contact',(req,res)=>{
 
  //route thank you
 
-router.get('/contact',(req,res)=>{
-   res.render('pages/contact');
+router.get('/compra',(req,res)=>{
+   res.render('pages/compra');
 });
