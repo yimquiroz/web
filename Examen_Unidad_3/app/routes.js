@@ -10,7 +10,7 @@ module.exports = router;
 
 //route to HOME
 router.get('/', (req, res)=>{
-    res.render('pages/home',{extra:"Practica RFC"});
+    res.render('pages/home',{extra:"Examen U3"});
 });
 
 //route Ventas
@@ -23,8 +23,8 @@ router.post('/venta',(req,res)=>{
 
    var dlls=1000;
    var pesos=20000;
-   var compra=19.20;
 
+   var venta=req.body.vent;
    var cambio = req.body.cantidad; 
 
    
@@ -32,9 +32,12 @@ router.post('/venta',(req,res)=>{
          result="No hay dinero suficiente";
       }
       else{
-        result = cambio * compra;
-        //console.log("Su cambio es: " + result);
+        result = cambio * venta;
+        
       }
+
+      const personal={message:' Su total es '+ result};
+      res.render('pages/thank-you',{per: personal});
 });
 
 //route Compras
@@ -47,12 +50,12 @@ router.post('/compra',(req,res)=>{
     
    var dlls=1000;
    var pesos=20000;
-   var compra=19.20;
 
+   var compra = req.body.comp;
    var cambio = req.body.cantidad; 
 
    
-      if(cambio >= dlls){
+      if(cambio >= pesos){
         result="No hay dinero suficiente";
       }
       else{
