@@ -9,13 +9,14 @@ header .navbar {
 }
 
 .hero {
-  background-image: url(../img/x.jpg);
-  background-repeat: no-repeat;;
+  background-image: url(../img/verde.jpg);
+  background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
-  padding: 50px 0;
-  min-height: 650px;
+  background-position: center;
+  padding: 10px ;
+  min-height: 400px;
   position: relative;
+  text-align: center;
 }
 
 
@@ -61,6 +62,14 @@ footer {
 #reloj { width: 150px; height: 30px; padding: 5px 10px; border: 1px solid black; 
   font: bold 1.5em dotum, "lucida sans", arial; text-align: center;
   float: right; margin: 1em 3em 1em 1em; }
+
+  #jumbojumbo{
+    background-color: green;
+    font-size: xx-large;
+    color: honeydew;
+    text-align: center;
+    size: 30ch;
+  }
 
 
   
