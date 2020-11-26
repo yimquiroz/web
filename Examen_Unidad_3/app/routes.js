@@ -22,6 +22,7 @@ router.post('/compra',(req,res)=>{
    res.render('pages/thank-you',{per: personal});
 });
 
+
 //route Compras
 router.post('/compra',(req,res)=>{
 
