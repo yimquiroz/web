@@ -15,9 +15,7 @@ router.get('/', (req, res)=>{
 
 
 //Variables Fondo
-var dlls=1000;
-var pesos=20000;
-
+x
 //route Ventas
 
 router.get('/venta',(req,res)=>{
