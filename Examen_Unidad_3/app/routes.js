@@ -13,6 +13,11 @@ router.get('/', (req, res)=>{
     res.render('pages/home',{extra:"Examen U3"});
 });
 
+
+//Variables Fondo
+var dlls=1000;
+var pesos=20000;
+
 //route Ventas
 
 router.get('/venta',(req,res)=>{
@@ -21,23 +26,26 @@ router.get('/venta',(req,res)=>{
 
 router.post('/venta',(req,res)=>{
 
-   var dlls=1000;
-   var pesos=20000;
+ 
 
    var venta=req.body.vent;
    var cambio = req.body.cantidad; 
 
    
-      if(cambio >= dlls){
-         result="No hay dinero suficiente";
-      }
-      else{
-        result = cambio * venta;
-        
-      }
+   if(cambio/venta >= dlls){
+      console.log("No hay dinero suficiente");
+    }
+    else{
+      result = cambio /venta ;    
+    }
 
       const personal={message:' Su total es '+ result};
+      const balanzapesos = {message:'Tienes '+(dlls = dlls - result) + ' dlls en caja'};
+      const balanzadlls = {message:'Tienes pesos ' + (pesos = pesos + cambio ) + ' en caja'};
       res.render('pages/thank-you',{per: personal});
+      res.render('pages/thank-you',{baldlls: balanzadlls});
+      res.render('pages/thank-you',{balp:balanzapesos});
+      
 });
 
 
@@ -49,25 +57,24 @@ router.get('/compra',(req,res)=>{
 
 router.post('/compra',(req,res)=>{
     
-   var dlls=1000;
-   var pesos=20000;
-
+  
    var compra = req.body.comp;
    var cambio = req.body.cantidad; 
 
    
-      if(cambio >= pesos){
-        result="No hay dinero suficiente";
-      }
-      else{
-        result = cambio * compra;
-        
-      }
+   if(compra*cambio >= pesos){
+      console.log("No hay dinero suficiente");
+    }
+    else{
+      result = cambio * compra;
+        }
     
-    
-  
    const personal={message:' Su total es '+ result};
+   const balanzapesos = {message:'Tienes '+(dlls = dlls + cambio) + ' dlls en caja'};
+   const balanzadlls = {message:'Tienes pesos ' + (pesos = pesos - result) + ' en caja'};
    res.render('pages/thank-you',{per: personal});
+   res.render('pages/thank-you',{baldlls: balanzadlls});
+   res.render('pages/thank-you',{balp:balanzapesos});
 });
 
 
