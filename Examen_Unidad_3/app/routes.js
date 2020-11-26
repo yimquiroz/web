@@ -10,32 +10,66 @@ module.exports = router;
 
 //route to HOME
 router.get('/', (req, res)=>{
-    res.render('pages/home',{extra:"Practica RFC"});
+    res.render('pages/home',{extra:"Examen U3"});
 });
 
 //route Ventas
-router.post('/compra',(req,res)=>{
 
-  var Nombre=req.body.Name.substr(0,1);
-  Nombre;
-   const personal={message:' Su CURP a sido generado '+ CURP};
-   res.render('pages/thank-you',{per: personal});
+router.get('/venta',(req,res)=>{
+   res.render('pages/venta');
+});
+
+router.post('/venta',(req,res)=>{
+
+   var dlls=1000;
+   var pesos=20000;
+
+   var venta=req.body.vent;
+   var cambio = req.body.cantidad; 
+
+   
+      if(cambio >= dlls){
+         result="No hay dinero suficiente";
+      }
+      else{
+        result = cambio * venta;
+        
+      }
+
+      const personal={message:' Su total es '+ result};
+      res.render('pages/thank-you',{per: personal});
 });
 
 
 //route Compras
-router.post('/compra',(req,res)=>{
 
- // var Nombre=req.body.Name.substr(0,1);
+router.get('/compra',(req,res)=>{
+   res.render('pages/compra');
+});
+
+router.post('/compra',(req,res)=>{
+    
+   var dlls=1000;
+   var pesos=20000;
+
+   var compra = req.body.comp;
+   var cambio = req.body.cantidad; 
+
+   
+      if(cambio >= pesos){
+        result="No hay dinero suficiente";
+      }
+      else{
+        result = cambio * compra;
+        
+      }
+    
+    
   
-   const personal={message:' Su CURP a sido generado '+ CURP};
+   const personal={message:' Su total es '+ result};
    res.render('pages/thank-you',{per: personal});
 });
 
 
 
- //route thank you
 
-router.get('/compra',(req,res)=>{
-   res.render('pages/compra');
-});

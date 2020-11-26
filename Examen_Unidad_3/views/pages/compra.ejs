@@ -1,15 +1,17 @@
+
 <div id= contactimg class="jumbotron text-center">
+<<<<<<< HEAD
   
   
   <h1 style="color: white ; ">Compra</h1>
+=======
+  <h1 style="color: black ; ">Compra</h1>
+>>>>>>> 357c73a4c14f2817c494f2953c5e49e79ce57fa4
 
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
       <h2>¡Facil, rápido y seguro!</h2>
-      <p style="color:white;">¡Solo ingresa los datos!</p>
-
-      <h2>Tipo de cambio</h2>
-      <h2>COMPRA 19.20</h2>
+            
      
       <form action="/compra" method="POST">
       <!--<form action="/contacto" method="GET"> -->
@@ -17,27 +19,28 @@
 
         <div class="form-group">
 
-          <div class="form-group">
-
+        <div class="form-group">
+          <label>Tipo de cambio</label>
+          <input type="decimal" name="comp" class="form-control" value="" required placeholder="COMPRA">
           <label>Cuanto desea vender?</label>
-          <input type="number" name="number" class="form-control" value="" required placeholder="Cuanto desea vender?">
-        </div>
-        
-        
+          <input type="decimal" name="cantidad" class="form-control" value="" required placeholder="Cuanto desea vender?">
+        </div>    
 
         
         
-          <div class="help-block with-errors"></div>
-          </div>
-        </div> 
-        <button type = "submit" id ="form-submit" class="btn btn-success btn-lg pull-center">Generar</button>
+        <div class="help-block with-errors"></div>
+        <button  type = "submit" id ="form-submit" class="btn btn-success btn-lg pull-center" >Generar</button>
         <div id="msgSubmit" class="h2 text-center hidden"></div>
         <div class=clearfix></div>
+          </div>
+        </div> 
+        
 
       </form>
     </div>
   </div>
 </div>
+<<<<<<< HEAD
 
 <div id="Myclock">
     
@@ -69,3 +72,5 @@
     }
     showTime();
   </script>
+=======
+>>>>>>> 357c73a4c14f2817c494f2953c5e49e79ce57fa4

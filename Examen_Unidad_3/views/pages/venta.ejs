@@ -1,38 +1,35 @@
 <div id= contactimg class="jumbotron text-center">
-    <h1 style="color: white ; ">Venta</h1>
-  
-    <div class="row">
-      <div class="col-sm-6 col-sm-offset-3">
-        <h2>¡Facil, rápido y seguro!</h2>
-        <p style="color:white;">¡Solo ingresa los datos!</p>
-  
-        <h2>Tipo de cambio</h2>
-        <h2>VENTA 19.20</h2>
+  <h1 style="color: black ; ">Venta</h1>
+
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h2>¡Facil, rápido y seguro!</h2>
+                
+     
+      <form action="/venta" method="POST">
+      <!--<form action="/contacto" method="GET"> -->
+    
+
+        <div class="form-group">
+
+        <div class="form-group">
+          <label>Tipo de cambio</label>
+          <input type="decimal" name="vent" class="form-control" value="" required placeholder="VENTA">
+          <label>Cuanto desea comprar?</label>
+          <input type="decimal" name="cantidad" class="form-control" value="" required placeholder="Cuanto desea comprar?">
+        </div>    
        
-        <form action="/contact" method="POST">
-        <!--<form action="/contacto" method="GET"> -->
-      
-  
-          <div class="form-group">
-  
-            <div class="form-group">
-  
-            <label>Cuanto desea comprar?</label>
-            <input type="number" name="number" class="form-control" value="" required placeholder="Cuanto desea vender?">
-          </div>
-          
-          
-  
-          
-          
-            <div class="help-block with-errors"></div>
-            </div>
-          </div> 
+        
+          <div class="help-block with-errors"></div>
           <button type = "submit" id ="form-submit" class="btn btn-success btn-lg pull-center">Generar</button>
-          <div id="msgSubmit" class="h2 text-center hidden"></div>
-          <div class=clearfix></div>
-  
-        </form>
-      </div>
+        <div id="msgSubmit" class="h2 text-center hidden"></div>
+        <div class=clearfix></div>
+          </div>
+        </div> 
+        
+        
+
+      </form>
     </div>
   </div>
+</div>
