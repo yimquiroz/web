@@ -37,8 +37,8 @@ router.post('/venta',(req,res)=>{
     }
     else{
       result = cambio /venta ;    
-      const balanzapesos = {message:'Tienes '+(dlls = dlls - result) + ' dlls en caja'};
-      const balanzadlls = {message:'Tienes ' + (pesos = pesos + cambio ) + ' pesos en caja'};
+      const balanzapesos = {message:'Tienes '+(dlls = parseFloat(dlls) - parseFloat(result)) + ' dlls en caja'};
+      const balanzadlls = {message:'Tienes ' + (pesos = parseFloat(pesos) + parseFloat(cambio) ) + ' pesos en caja'};
       const personal={message:' Su total es '+ result};
       
       res.render('pages/thank-you',{per: personal, baldlls: balanzadlls, balp:balanzapesos});
@@ -68,8 +68,8 @@ router.post('/compra',(req,res)=>{
     }
     else{
       result = cambio * compra;
-      const balanzapesos = {message:'Tienes '+(dlls = dlls + cambio) + ' dlls en caja'};
-      const balanzadlls = {message:'Tienes ' + (pesos = pesos - result) + ' pesos en caja'};
+      const balanzapesos = {message:'Tienes '+(dlls = parseFloat(dlls) + parseFloat(cambio)) + ' dlls en caja'};
+      const balanzadlls = {message:'Tienes ' + (pesos = parseFloat(pesos) - parseFloat(result)) + ' pesos en caja'};
       const personal={message:' Su total es '+ result};
   
       res.render('pages/thank-you',{per: personal,baldlls: balanzadlls,balp:balanzapesos});
