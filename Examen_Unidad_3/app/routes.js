@@ -37,14 +37,15 @@ router.post('/venta',(req,res)=>{
     }
     else{
       result = cambio /venta ;    
+      const balanzapesos = {message:'Tienes '+(dlls = dlls - result) + ' dlls en caja'};
+      const balanzadlls = {message:'Tienes ' + (pesos = pesos + cambio ) + ' pesos en caja'};
+      const personal={message:' Su total es '+ result};
+      
+      res.render('pages/thank-you',{per: personal, baldlls: balanzadlls, balp:balanzapesos});
     }
 
-      const personal={message:' Su total es '+ result};
-      const balanzapesos = {message:'Tienes '+(dlls = dlls - result) + ' dlls en caja'};
-      const balanzadlls = {message:'Tienes pesos ' + (pesos = pesos + cambio ) + ' en caja'};
-      res.render('pages/thank-you',{per: personal});
-      res.render('pages/thank-you',{baldlls: balanzadlls});
-      res.render('pages/thank-you',{balp:balanzapesos});
+      
+     
       
 });
 
@@ -67,14 +68,15 @@ router.post('/compra',(req,res)=>{
     }
     else{
       result = cambio * compra;
+      const balanzapesos = {message:'Tienes '+(dlls = dlls + cambio) + ' dlls en caja'};
+      const balanzadlls = {message:'Tienes ' + (pesos = pesos - result) + ' pesos en caja'};
+      const personal={message:' Su total es '+ result};
+  
+      res.render('pages/thank-you',{per: personal,baldlls: balanzadlls,balp:balanzapesos});
+   
         }
     
-   const personal={message:' Su total es '+ result};
-   const balanzapesos = {message:'Tienes '+(dlls = dlls + cambio) + ' dlls en caja'};
-   const balanzadlls = {message:'Tienes pesos ' + (pesos = pesos - result) + ' en caja'};
-   res.render('pages/thank-you',{per: personal});
-   res.render('pages/thank-you',{baldlls: balanzadlls});
-   res.render('pages/thank-you',{balp:balanzapesos});
+   
 });
 
 
