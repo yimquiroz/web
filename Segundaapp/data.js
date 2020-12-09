@@ -1,5 +1,5 @@
-/*
-const data = [
+
+/*const data = [
     {
         'id': 1,
         'first_name': 'Jonathan',
@@ -16,5 +16,4 @@ const data = [
     }
 ];
 module.exports = data;
-
 */

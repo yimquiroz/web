@@ -7,7 +7,7 @@ const app   =   express();
 const mongoose = require('mongoose');
 const mongoUri = require('mongodb-uri');
 
-const mongodbUri =  'mongodb+srv://Jaay98:Aaya98020415@cluster0.baky2.mongodb.net/test1?retryWrites=true&w=majority';
+const mongodbUri =  'mongodb+srv://yimq:1234abcd@cluster0.phfar.mongodb.net/test1?retryWrites=true&w=majority';
 const mongooseUri = mongoUri.formatMongoose(mongodbUri);
 const dbOptions = { useUnifiedTopology: true, useNewUrlParser: true };
 
@@ -39,7 +39,7 @@ app.get('/api/contact/:id', (req, res)=>{
          res.json(contact[0]);
     });
 
-app.post('/api/contacts', (req,res)=>{
+/*app.post('/api/contacts', (req,res)=>{
 
     const contact={
         id: contacts.length + 1,
@@ -51,7 +51,7 @@ app.post('/api/contacts', (req,res)=>{
     contacts.push(contact);
 
         res.json(contact);
-})
+})*/
 
 app.put('/api/contact/:id', (req,res)=>{
 
@@ -89,4 +89,8 @@ app.listen(port, hostName, ()=>{
             console.log(`server is running at http :${hostName} :${port}`);
         }
     });
+    
 });
+app.use('/api/contacts', require('./api/routes/post_contact')); //llamamos POST
+app.use('/api/contacts', require('./api/routes/get_contacts')); //llamamos GET
+
