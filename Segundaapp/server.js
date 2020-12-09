@@ -20,16 +20,6 @@ app.use(cors());
 
 let contacts = require('./data');
 
-/*
-app.get ('/api/contacts', (req,res)=>{
-    if(!contacts){
-    res.status(404).json({
-            message: 'No se encontraron contactos'
-        }); 
-     }
-     res.json(contacts);
-});
-*/
 
 app.use('/api/contacts',require('./api/routes/get_contacts.js'));
 
