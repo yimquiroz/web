@@ -7,7 +7,7 @@ const app   =   express();
 const mongoose = require('mongoose');
 const mongoUri = require('mongodb-uri');
 
-const mongodbUri =  'mongodb+srv://yimq:1234abcd@cluster0.phfar.mongodb.net/test1?retryWrites=true&w=majority';
+const mongodbUri =  'mongodb+srv://Jaay98:Aaya98020415@cluster0.baky2.mongodb.net/test1?retryWrites=true&w=majority';
 const mongooseUri = mongoUri.formatMongoose(mongodbUri);
 const dbOptions = { useUnifiedTopology: true, useNewUrlParser: true };
 
@@ -39,21 +39,8 @@ app.get('/api/contact/:id', (req, res)=>{
          res.json(contact[0]);
     });
 
-/*app.post('/api/contacts', (req,res)=>{
 
-    const contact={
-        id: contacts.length + 1,
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
-        email:req.body.email,
-        websites:req.body.website
-    };
-    contacts.push(contact);
-
-        res.json(contact);
-})*/
-
-app.put('/api/contact/:id', (req,res)=>{
+/*app.put('/api/contact/:id', (req,res)=>{
 
     const reqId= req.params.id;
 
@@ -77,6 +64,7 @@ app.put('/api/contact/:id', (req,res)=>{
 console.log("esto vale contact [index]: " + contacts[index]);
     res.json(contact[index]);
 });
+*/
 
 app.listen(port, hostName, ()=>{
     
@@ -93,4 +81,5 @@ app.listen(port, hostName, ()=>{
 });
 app.use('/api/contacts', require('./api/routes/post_contact')); //llamamos POST
 app.use('/api/contacts', require('./api/routes/get_contacts')); //llamamos GET
-
+app.use('/api/contacts', require('./api/routes/put_contacts')); //llamamos PUT
+app.use('/api/contacts', require('./api/routes/delete_contacts')); //llamamos DELETE
