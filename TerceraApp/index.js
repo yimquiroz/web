@@ -1,16 +1,16 @@
 'use strict'
 
-const express = require('express')
+const express = require('express');
 
-const mongoose = require('mongoose')
-const hbs = require('express-handlebars')
-const config = require('./config')
-const Product = require('./models/product')
-const bodyParser = require('body-parser')
-const app = express()
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const config = require('./config');
+const hbs = require('express-handlebars');
+const Product = require('./models/product');
+const app = express();
 
-
-
+const Handlebars = require('handlebars')
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 
 
 // $ npm i -S method-override
@@ -23,9 +23,11 @@ app.use(bodyParser.urlencoded({extended : false}))
 app.use(bodyParser.json())
 
 app.engine('.hbs', hbs({
-    defaultLayout: 'index',
-    extname: '.hbs'
-  }))
+    defaultLayout : 'index',
+    extname: 'hbs',
+    handlebars: allowInsecurePrototypeAccess(Handlebars)
+}));
+
   app.set('view engine', '.hbs')
   
   app.use('/static',express.static('public'))
@@ -48,6 +50,31 @@ app.get('/api/product',(req, res) =>{
     
 })
 
+app.get('/api/products',(req, res)=>{
+
+    Product.find({}, (err, products) =>{
+
+        if(err) return res.status(500).send({mesagge: `Error al realizar la peticion`});
+        if(!products) return res.status(404).send({mesagge: `No existen productos`});
+        res.render('products', {products});
+    }).lean();
+
+});
+
+app.post('/api/product', (req, res) =>{
+    const product = new Product();
+    product.name = req.body.name;
+    product.picture = req.body.picture;
+    product.price = req.body.price;
+    product.category = req.body.category;
+    product.description = req.body.description;
+
+    product.save( (err, productStored) =>{
+        if (err) res.status(500).send({message:`Error al salvar en BD ${err}`});
+        res.status(200).send( { product: productStored } );
+    });
+});
+
 app.get('/api/product/:productId',(req,res)=>{
     let productId = req.params.productId
     console.log(req.body)
@@ -60,49 +87,20 @@ app.get('/api/product/:productId',(req,res)=>{
     })
 })
 
-app.post('/api/product',(req,res)=>{
-    console.log('POST /api/product')
-    console.log(req.body)
-    //res.status(200).send({message:'El producto se a recibido'})
-    let product = new Product()
-    product.name = req.body.name
-    product.picture = req.body.picture
-    product.price = req.body.price
-    product.category = req.body.category
-    product.description = req.body.description
-      console.log(req.body)
-    product.save((err, productStored) =>{
-        if (err) res.status(500).send({message:`Error al salvar en BD ${err}`})
-
-        res.status(200).send({product: productStored})
-    })
-})
-
-app.get('/api/products',(req, res)=>{
-
-    Product.find({}, (err, products) =>{
-
-        if(err) return res.status(500).send({mesagge: `Error al realizar la peticion`});
-        if(!products) return res.status(404).send({mesagge: `No existen productos`});
-        res.render('products', {products});
-    }).lean();
-
-});
-
 app.put('/api/product/:productId',(req,res)=>{
-   
+
     let productId = req.params.productId
-    console.log(`EL product es: ${productId}`)
+    //console.log(`EL product es: ${productId}`)
     
     let update = req.body
-    console.log(update)
+    //(console.log(update)
     
    // Product.findAndModify({_id:productId}, update,(err,products)=> {
-       Product.findOneAndUpdate({_id:productId}, update,(err,products)=> {
+    Product.findOneAndUpdate({_id:productId}, update,(err,products)=> {
         if (err) res.status(500).send({message:`Error al actualizar el producto el producto ${err}`})
         //res.status(200).send({product: products})
-       res.redirect('/api/product')
-       
+        res.redirect('/api/products')
+
     })
 })
 
