@@ -6,20 +6,20 @@
      <script src="/static/js/bootstrap.min.js"></script>   
     <title>Document</title>
 </head>
-
-<form action="/api/product" method="POST">
-
-Nombre <input type="text"  value="" name="name"><br>
-Price <input type="number" value="" name="price"><br>
+<!--   The idea is to use a header to override the method. The following example 
+    is to override POST method to create PUT and DELETE method.    --> 
+    <!--<form action="/api/product/{{_id}}" method="PUT">-->
+    <form action="/api/product"  method="POST">
+    
+    <!--ID <input type="text" disabled value =""  name = "_id"> <br> -->
     Nombre <input type="text"  value="" name="name"><br>
     Price <input type="number" value="" name="price"><br>
-    Categoria<select name = "category">
+      Categoria<select name = "category">
         <option value="computers">Computers</option>
         <option value="phones">Phones</option>
-        <option value="accesories">Accessories</option>
+        <option value="accesories">Accesories</option>
         </select> 
-Description <input type="text"  value="" name="description"><br>
-Picture <input type="number" value="" name="picture"><br>
-<button class="btn btn-primary" type="submit">Guardar</button>
-
-</form>
+     Description <input type="text"  value="" name="description"><br>
+     Picture <input type="text"  value="" name="picture"><br>
+     <button class="btn btn-primary" type="submit">GUARDAR</button>
+    </form>
