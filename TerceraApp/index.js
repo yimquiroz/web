@@ -50,7 +50,7 @@ app.get('/api/product',(req, res) =>{
 
 app.get('/api/product/:productId',(req,res)=>{
     let productId = req.params.productId
-   // console.log(req.body)
+    console.log(req.body)
     Product.findById(productId,(err,products) =>{
       // Product.find({price:productId},(err,todook)=>{
         if(err) return res.status(500).send({message:`Error al realizar la peticion${err}`})
@@ -78,6 +78,17 @@ app.post('/api/product',(req,res)=>{
     })
 })
 
+app.get('/api/products',(req, res)=>{
+
+    Product.find({}, (err, products) =>{
+
+        if(err) return res.status(500).send({mesagge: `Error al realizar la peticion`});
+        if(!products) return res.status(404).send({mesagge: `No existen productos`});
+        res.render('products', {products});
+    }).lean();
+
+});
+
 app.put('/api/product/:productId',(req,res)=>{
    
     let productId = req.params.productId
@@ -99,7 +110,7 @@ app.delete('/api/product/:productId',(req,res)=>{
     let productId = req.params.productId
 
     Product.findById(productId,(err,product)=>{
-     if (err) res.status(500).send({message:`Error al borrar el producto ${err}`})
+    if (err) res.status(500).send({message:`Error al borrar el producto ${err}`})
 
         product.remove(err => {
             if (err) res.status(500).send({message:`Error al borrar el producto ${err}`})
