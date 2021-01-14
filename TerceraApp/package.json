@@ -4,15 +4,15 @@
   "description": "Crud de productos con motor de vistas HBS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "start": "node index.js"
   },
   "keywords": [
     "mongodb",
     "express",
     "hbs"
   ],
-  "author": "Alonso Alvarez",
+  "author": "Montserrat Briseño",
   "license": "ISC",
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.3",

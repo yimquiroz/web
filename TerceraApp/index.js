@@ -47,8 +47,22 @@ app.get('/api/product',(req, res) =>{
     //res.status(200).send( {products:[products]})
     res.render('products',{products})
 })
+
+//NUEVO METODO CON TODOS LOS PRODUCTOS
+app.get('/api/products', (req, res) => {
+
+    Product.find({}, (err, products)=>{
+        if (err) return res.status(500).send({message: `Error al generar la peticion`});
+        if(!products) return res.status(404).send({message: `No existen productos`});
+        console.log(products);
+        res.render('products', {products});
+    }).lean();
+});
     
 })
+app.get('/product', (req, res) => {
+    res.render('product');
+});
 
 app.get('/api/products',(req, res)=>{
 
