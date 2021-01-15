@@ -3,11 +3,11 @@
   <thead>
     <tr>
       <th>ID</th> {{!-- Scope = negritas --}}
-        <th class="th-sm" >Name</th>
-        <th class="th-sm">price</th>
-        <th class="th-sm">picture</th>
-        <th class="th-sm">category</th>
-        <th class="th-sm">description</th>
+        <th class="th-sm" >Nombre</th>
+        <th class="th-sm">Precio</th>
+        <th class="th-sm">Picture</th>
+        <th class="th-sm">Categoría</th>
+        <th class="th-sm">Descripción</th>
         
     </tr>
   </thead>
@@ -30,8 +30,8 @@
               </form>
             </td>
             <td>
-              <form action="/api/product/{{_id}}" method="GET">
-          
+              <form action="/api/product/{{_id}}?_method=DELETE" method="post">
+                  <input type="hidden" name="_method" value="DELETE">
                 <button class="btn btn-primary" type="submit">Eliminar</button>
               </form>
             </td>

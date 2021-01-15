@@ -123,10 +123,11 @@ app.delete('/api/product/:productId',(req,res)=>{
     Product.findById(productId,(err,product)=>{
     if (err) res.status(500).send({message:`Error al borrar el producto ${err}`})
 
-        product.remove(err => {
-            if (err) res.status(500).send({message:`Error al borrar el producto ${err}`})
-            res.status(200).send({message:'El producto ha sido eliminado'})
-        })
+    product.remove(err => {
+        if (err) res.status(500).send({message:`Error al borrar el producto ${err}`})
+     
+       res.redirect('/api/product')
+    })
 
     })
 }) 
@@ -138,7 +139,7 @@ mongoose.connect(config.db, config.urlParser, (err,res) =>{
     console.log('Conexion a la BD exitosa')
 
     app.listen(config.port,() => {
-    console.log(`API-REST  yeiii ejecutando en http://locahost:${config.port}`)
+    console.log(`API-REST  ejecutado en http://locahost:${config.port}`)
     })
 })
 /*
