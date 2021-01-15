@@ -141,22 +141,3 @@ mongoose.connect(config.db, config.urlParser, (err,res) =>{
     console.log(`API-REST  yeiii ejecutando en http://locahost:${config.port}`)
     })
 })
-/*
-mongoose.connect('mongodb://localhost:27017/shop',(err,res) =>{
-    if(err) {
-        return console.log(`Error al conectar la BD ${err}`)
-    }
-
-    console.log('Conexion a la BD exitosa')
-
-    app.listen(port,() => {
-    console.log(`API-REST  yeiii ejecutando en http://locahost:${port}`)
-    })
-})*/
-
-// PARA deploy : heroku login
-// git init
-//heroku git:remote -a api-rest-pgj
-// git add .
-// git commit -am 'preparing to heroku'
-// git push heroku master
